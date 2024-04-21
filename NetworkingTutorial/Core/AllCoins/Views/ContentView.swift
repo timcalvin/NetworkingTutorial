@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    // VM: Fetch data from API and supply view with the data
+    @StateObject var viewModel = CoinsViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
+        Text("\(viewModel.coin): \(viewModel.price)")
         .padding()
     }
 }
