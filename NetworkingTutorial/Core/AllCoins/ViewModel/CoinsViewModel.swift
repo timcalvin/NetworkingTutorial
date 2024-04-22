@@ -15,12 +15,18 @@ class CoinsViewModel: ObservableObject {
     private let service = CoinDataService()
     
     init() {
-        fetchCoins()
+        Task {
+            try await fetchCoins()
+        }
+    }
+    
+    func fetchCoins() async throws {
+        self.coins = try await service.fetchCoins()
     }
     
     // When inside an escaping block of code (completion handler in this case) you must use
     // self to refer to class level properties
-    func fetchCoins() {
+    func fetchCoinsWithCompletionHandler() {
         // By default, when you create references to another object (self.coins for example) you
         // are creating a strong reference. Strong references don't deallocate. Weak references
         // deallocatre (and must be optional (self?.coins)) when the parent element does.
