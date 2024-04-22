@@ -16,13 +16,24 @@ class CoinsViewModel: ObservableObject {
     
     init() {
         Task {
-            try await fetchCoins()
+            await fetchCoins()
         }
     }
     
-    func fetchCoins() async throws {
-        self.coins = try await service.fetchCoins()
+    @MainActor
+    func fetchCoins() async {
+        do {
+            self.coins = try await service.fetchCoins()
+        } catch {
+            if let error = error as? CoinAPIError {
+                self.errorMessage = error.customDescription
+            } else {
+                self.errorMessage = error.localizedDescription
+            }
+        }
     }
+    
+    // MARK: - Completion Handlers
     
     // When inside an escaping block of code (completion handler in this case) you must use
     // self to refer to class level properties
@@ -42,3 +53,4 @@ class CoinsViewModel: ObservableObject {
         }
     }
 }
+
