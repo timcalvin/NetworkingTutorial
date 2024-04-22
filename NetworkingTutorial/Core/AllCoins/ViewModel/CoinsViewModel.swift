@@ -15,9 +15,7 @@ class CoinsViewModel: ObservableObject {
     private let service = CoinDataService()
     
     init() {
-        Task {
-            await fetchCoins()
-        }
+        Task { await fetchCoins() }
     }
     
     @MainActor
@@ -25,11 +23,8 @@ class CoinsViewModel: ObservableObject {
         do {
             self.coins = try await service.fetchCoins()
         } catch {
-            if let error = error as? CoinAPIError {
-                self.errorMessage = error.customDescription
-            } else {
-                self.errorMessage = error.localizedDescription
-            }
+            guard let error = error as? CoinAPIError else { return }
+            self.errorMessage = error.customDescription
         }
     }
     
