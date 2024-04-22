@@ -11,6 +11,7 @@ class CoinsViewModel: ObservableObject {
     
     @Published var coin = ""
     @Published var price = ""
+    @Published var errorMessage: String?
     
     init() {
         fetchPrice(coin: "gala")
@@ -27,40 +28,48 @@ class CoinsViewModel: ObservableObject {
         }
         
         // 3. Send request and handle response
-//        print("TCB: Fetching price...") // 1
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard error == nil else {
-                print("TCB: Error fetching data: \(error?.localizedDescription ?? "")")
-                return
-            }
-            
-//            print("Did receive data \(data)") // 3
-            
-            // 4. Create a JSON Object from the data response
-            guard let data = data else {
-                print("TCB: Failed to unwrap data object")
-                return
-            }
-            
-            // 5. Parse JSON Object
-            guard let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-                print("TCB: Failed to parse jsonObject")
-                return
-            }
-            guard let value = jsonObject[coin] as? [String: Double] else {
-                print("TCB: Failed to parse value")
-                return
-            }
-            guard let price = value["usd"] else {
-                print("TCB: Failed to assign price")
-                return
-            }
-            
+            // 4. Stop execution if an error is returned
             DispatchQueue.main.async {
+                if let error {
+                    print("TCB: Error fetching data: \(error.localizedDescription)")
+                    self.errorMessage = error.localizedDescription
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    self.errorMessage = "Bad HTTP Response"
+                    return
+                }
+                
+                guard httpResponse.statusCode == 200 else {
+                    self.errorMessage = "Failed to fetch with status code \(httpResponse.statusCode)"
+                    return
+                }
+                
+                // 5. Create a JSON Object from the data response
+                guard let data = data else {
+                    print("TCB: Failed to unwrap data object")
+                    return
+                }
+                
+                // 6. Parse JSON Object
+                guard let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                    print("TCB: Failed to parse jsonObject")
+                    return
+                }
+                guard let value = jsonObject[coin] as? [String: Double] else {
+                    print("TCB: Failed to parse value")
+                    return
+                }
+                guard let price = value["usd"] else {
+                    print("TCB: Failed to assign price")
+                    return
+                }
+                
                 self.coin = coin.capitalized
                 self.price = "$\(price)"
             }
-            
         }.resume()
         
 //        print("TCB: Did reach end of function...") // 2
