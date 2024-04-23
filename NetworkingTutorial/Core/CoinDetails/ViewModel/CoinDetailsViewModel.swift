@@ -15,8 +15,6 @@ class CoinDetailsViewModel: ObservableObject {
     
     init(coinId: String) {
         self.coinId = coinId
-        
-        Task { await fetchCoinDetails() }
     }
     
     @MainActor

@@ -19,6 +19,7 @@
 		B1ABD5612BD7025E0068BB05 /* CoinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD5602BD7025E0068BB05 /* CoinDetails.swift */; };
 		B1ABD5642BD704C00068BB05 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD5632BD704C00068BB05 /* CoinDetailsViewModel.swift */; };
 		B1ABD5672BD804090068BB05 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD5662BD804090068BB05 /* HTTPDataDownloader.swift */; };
+		B1ABD56B2BD844150068BB05 /* CoinDetailsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD56A2BD844150068BB05 /* CoinDetailsCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		B1ABD5602BD7025E0068BB05 /* CoinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetails.swift; sourceTree = "<group>"; };
 		B1ABD5632BD704C00068BB05 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
 		B1ABD5662BD804090068BB05 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
+		B1ABD56A2BD844150068BB05 /* CoinDetailsCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		B1ABD55B2BD6FF330068BB05 /* CoinDetails */ = {
 			isa = PBXGroup;
 			children = (
+				B1ABD5692BD843FA0068BB05 /* Cache */,
 				B1ABD55F2BD702470068BB05 /* Model */,
 				B1ABD55C2BD6FF4D0068BB05 /* Views */,
 				B1ABD5622BD704A40068BB05 /* ViewModel */,
@@ -193,6 +196,14 @@
 				B1ABD5662BD804090068BB05 /* HTTPDataDownloader.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		B1ABD5692BD843FA0068BB05 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				B1ABD56A2BD844150068BB05 /* CoinDetailsCache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1ABD55E2BD6FF9A0068BB05 /* CoinDetailsView.swift in Sources */,
+				B1ABD56B2BD844150068BB05 /* CoinDetailsCache.swift in Sources */,
 				B1ABD5642BD704C00068BB05 /* CoinDetailsViewModel.swift in Sources */,
 				B1ABD55A2BD6D2240068BB05 /* CoinAPIError.swift in Sources */,
 				B1ABD5562BD61A260068BB05 /* CoinDataService.swift in Sources */,
