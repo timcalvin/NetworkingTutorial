@@ -22,8 +22,7 @@ class CoinDetailsViewModel: ObservableObject {
     @MainActor
     func fetchCoinDetails() async {       
         do {
-            let details = try await service.fetchCoinDetails(id: coinId)
-            self.coinDetails = details
+            self.coinDetails = try await service.fetchCoinDetails(id: coinId)
         } catch {
             print("TCB: Error: \(error.localizedDescription)")
         }
