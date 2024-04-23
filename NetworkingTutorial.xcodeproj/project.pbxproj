@@ -69,7 +69,7 @@
 			children = (
 				B1ABD54C2BD4AF2F0068BB05 /* App */,
 				B1ABD54D2BD4AF3A0068BB05 /* Core */,
-				B1ABD5652BD803F90068BB05 /* Protocols */,
+				B1ABD5652BD803F90068BB05 /* Shared */,
 				B1ABD5422BD4AEC30068BB05 /* Assets.xcassets */,
 				B1ABD5442BD4AEC30068BB05 /* Preview Content */,
 			);
@@ -179,12 +179,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		B1ABD5652BD803F90068BB05 /* Protocols */ = {
+		B1ABD5652BD803F90068BB05 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B1ABD5682BD824420068BB05 /* API */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B1ABD5682BD824420068BB05 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				B1ABD5662BD804090068BB05 /* HTTPDataDownloader.swift */,
 			);
-			path = Protocols;
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
