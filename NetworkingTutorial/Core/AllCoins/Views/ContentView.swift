@@ -33,6 +33,11 @@ struct ContentView: View {
                                 Text(coin.symbol.uppercased())
                             }
                         }
+                        .onAppear {
+                            if coin == viewModel.coins.last {
+                                Task { await viewModel.fetchCoins() }
+                            }
+                        }
                         .font(.footnote)
                     }
                 }

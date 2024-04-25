@@ -23,7 +23,8 @@ class CoinsViewModel: ObservableObject {
     @MainActor
     func fetchCoins() async {
         do {
-            self.coins = try await service.fetchCoins()
+            let coins = try await service.fetchCoins()
+            self.coins.append(contentsOf: coins)
         } catch {
             guard let error = error as? CoinAPIError else { return }
             self.errorMessage = error.customDescription
