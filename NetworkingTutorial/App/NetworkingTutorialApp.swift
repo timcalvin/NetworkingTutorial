@@ -12,8 +12,8 @@ struct NetworkingTutorialApp: App {
     var body: some Scene {
         WindowGroup {
             // NOTE: - This can also be accomplished with an environment object
-            ContentView(service: CoinDataService())
-//            ContentView(service: MockCoinService())
+//            ContentView(service: CoinDataService())
+            ContentView(service: MockCoinService())
         }
     }
 }
