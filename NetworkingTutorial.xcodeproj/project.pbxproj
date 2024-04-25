@@ -25,6 +25,9 @@
 		B1ABD57E2BD9AB700068BB05 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD57D2BD9AB700068BB05 /* TestData.swift */; };
 		B1ABD5802BD9E9020068BB05 /* CoinsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD57F2BD9E9020068BB05 /* CoinsViewModelTests.swift */; };
 		B1ABD5812BD9EA630068BB05 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD57D2BD9AB700068BB05 /* TestData.swift */; };
+		B1ABD5842BDA72FF0068BB05 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD5832BDA72FF0068BB05 /* ImageLoader.swift */; };
+		B1ABD5862BDA73080068BB05 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD5852BDA73080068BB05 /* ImageCache.swift */; };
+		B1ABD58A2BDA74160068BB05 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ABD5892BDA74160068BB05 /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		B1ABD5742BD9AB260068BB05 /* NetworkingTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTutorialTests.swift; sourceTree = "<group>"; };
 		B1ABD57D2BD9AB700068BB05 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		B1ABD57F2BD9E9020068BB05 /* CoinsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsViewModelTests.swift; sourceTree = "<group>"; };
+		B1ABD5832BDA72FF0068BB05 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		B1ABD5852BDA73080068BB05 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		B1ABD5892BDA74160068BB05 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B1ABD5682BD824420068BB05 /* API */,
+				B1ABD5822BDA72EF0068BB05 /* Images */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -244,6 +251,16 @@
 				B1ABD57D2BD9AB700068BB05 /* TestData.swift */,
 			);
 			path = NetworkingTutorialTests;
+			sourceTree = "<group>";
+		};
+		B1ABD5822BDA72EF0068BB05 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B1ABD5832BDA72FF0068BB05 /* ImageLoader.swift */,
+				B1ABD5852BDA73080068BB05 /* ImageCache.swift */,
+				B1ABD5892BDA74160068BB05 /* ImageView.swift */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,12 +363,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1ABD5862BDA73080068BB05 /* ImageCache.swift in Sources */,
+				B1ABD5842BDA72FF0068BB05 /* ImageLoader.swift in Sources */,
 				B1ABD56D2BD9678A0068BB05 /* MockCoinService.swift in Sources */,
 				B1ABD55E2BD6FF9A0068BB05 /* CoinDetailsView.swift in Sources */,
 				B1ABD56B2BD844150068BB05 /* CoinDetailsCache.swift in Sources */,
 				B1ABD5642BD704C00068BB05 /* CoinDetailsViewModel.swift in Sources */,
 				B1ABD5812BD9EA630068BB05 /* TestData.swift in Sources */,
 				B1ABD55A2BD6D2240068BB05 /* CoinAPIError.swift in Sources */,
+				B1ABD58A2BDA74160068BB05 /* ImageView.swift in Sources */,
 				B1ABD5562BD61A260068BB05 /* CoinDataService.swift in Sources */,
 				B1ABD5672BD804090068BB05 /* HTTPDataDownloader.swift in Sources */,
 				B1ABD5612BD7025E0068BB05 /* CoinDetails.swift in Sources */,
